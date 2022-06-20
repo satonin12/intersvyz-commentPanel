@@ -1,9 +1,16 @@
-import React from 'react';
+import React, {FC} from 'react';
+
+import MainLayout from './layout/MainLayout/MainLayout';
+import CommentPage from './page/CommentPage/CommentPage';
 
 import './App.css';
 
-function App() {
-	return <>123</>;
-}
+const App: FC = () => {
+	return (
+		<MainLayout>
+			<CommentPage/>
+		</MainLayout>
+	);
+};
 
 export default App;
