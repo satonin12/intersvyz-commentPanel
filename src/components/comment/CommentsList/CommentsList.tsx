@@ -1,19 +1,32 @@
-import React, {FC, useContext} from 'react';
+import React, {FC} from 'react';
 import CommentItem from '../CommentItem/CommentItem';
-import {CommentCTX} from '../../../store/Context/CommentProvider';
+import{useCommentsList} from './useCommentsList';
 
-const CommentsList : FC = () => {
-
+const CommentsList: FC = () => {
 	const {
-		comment
-	} = useContext(CommentCTX);
-
-	console.log('comment: ', comment);
+		values: {
+			comment
+		},
+		handlers: {
+			toggleRatingUp,
+			toggleRatingDown
+		}
+	} = useCommentsList();
 
 	return (
 		<>
-			{[1, 2].map(i => (
-				<CommentItem key={i} />
+			{comment.map(item => (
+				<CommentItem
+					key={item.id}
+					id={item.id}
+					name={item.name}
+					date={item.time}
+					rating={item.rating}
+					comment={item.comment}
+					increment={toggleRatingUp}
+					dicrement={toggleRatingDown}
+
+				/>
 			))}
 		</>
 	);

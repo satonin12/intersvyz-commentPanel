@@ -2,6 +2,7 @@ import {useContext} from 'react';
 import {useForm} from 'react-hook-form';
 import {TCommentForm} from '../../../types';
 import {CommentCTX} from '../../../store/Context/CommentProvider';
+import uniqid from 'uniqid';
 
 export const useCommentForm = () => {
 	const {
@@ -21,9 +22,11 @@ export const useCommentForm = () => {
 		try {
 			console.log('data: ', data);
 			const sendObject = {
+				id: uniqid(),
 				comment: data.comment,
 				time: Date.now(),
-				name: 'Vladislav'
+				name: 'Vladislav',
+				rating: 0,
 			}
 			setComment(prevState => [...prevState, sendObject]);
 		} catch (e) {
