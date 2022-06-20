@@ -1,18 +1,22 @@
 import React, {FC} from 'react';
 
-import { CommentPageStyled } from './style';
+import {CommentPageStyled} from './style';
 import CommentForm from '../../components/forms/commentForm/CommentForm';
 import CommentsList from '../../components/comment/CommentsList/CommentsList';
+import CommentProvider from '../../store/Context/CommentProvider';
 
-const CommentPage : FC = () => {
+const CommentPage: FC = () => {
 	return (
-		<WrapperMUI>
-			<CommentForm />
-			<CommentsList />
-		</WrapperMUI>
+		<CommentProvider>
+			<WrapperMUI>
+				<CommentForm/>
+				<CommentsList/>
+			</WrapperMUI>
+		</CommentProvider>
+
 	);
 };
 
-const { WrapperMUI } = CommentPageStyled();
+const {WrapperMUI} = CommentPageStyled();
 
 export default CommentPage;
