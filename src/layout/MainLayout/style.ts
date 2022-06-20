@@ -10,13 +10,7 @@ export const MainLayoutStyled = () => {
 		boxSizing: 'border-box',
 	}));
 
-	const ContentLayoutMUI = styled('div')(() => ({
-		margin: '0 auto',
-		maxWidth: '1440px',
-	}));
-
 	return {
 		MainLayoutMUI,
-		ContentLayoutMUI,
 	};
 };

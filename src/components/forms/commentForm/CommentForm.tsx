@@ -1,4 +1,5 @@
 import React, {FC} from 'react';
+import { Button } from '@mui/material';
 
 import {CommentFormStyled} from './style';
 import {useCommentForm} from './useCommentForm';
@@ -7,7 +8,7 @@ import CommentFormFields from './CommentFormFields/CommentFormFields';
 const CommentForm: FC = () => {
 	const {
 		useForm: {
-			// control,
+			control,
 			onSubmit,
 			handleSubmit,
 		},
@@ -16,7 +17,10 @@ const CommentForm: FC = () => {
 	return (
 		<ContainerMUI>
 			<form onSubmit={handleSubmit(onSubmit)}>
-				<CommentFormFields />
+				<CommentFormFields control={control} />
+				<Button variant="contained" type="submit">
+					Отправить
+				</Button>
 			</form>
 		</ContainerMUI>
 	);
