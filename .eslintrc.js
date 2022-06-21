@@ -18,6 +18,8 @@ module.exports = {
 	},
 	plugins: ['@typescript-eslint'],
 	rules: {
+		"@typescript-eslint/ban-ts-ignore": "off",
+		"@typescript-eslint/ban-ts-comment": "off",
 		indent: ['error', 'tab'],
 		'linebreak-style': 0,
 		quotes: ['error', 'single'],
