@@ -33,7 +33,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "commit": "cz",
-    "prettier": "prettier --write **/*.ts*"
+    "prettier": "prettier --write **/*.ts*",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "repository": {
     "type": "git",
@@ -46,6 +48,7 @@
   ],
   "author": "Vladislav Satonin",
   "license": "ISC",
+  "homepage": "https://github.com/satonin12/intersvyz-commentpanel",
   "bugs": {
     "url": "https://github.com/satonin12/intersvyz-commentpanel/issues"
   },
