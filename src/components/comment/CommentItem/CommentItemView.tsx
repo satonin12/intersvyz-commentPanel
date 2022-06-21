@@ -7,7 +7,7 @@ import { ICommentItemComponent } from '../../../types';
 import { CommentItemStyled } from './style';
 
 /**
- * Компонент комментария без логики (pure component)
+ * Компонент комментария без логики ()
  * @param id
  * @param name
  * @param time
