@@ -1,38 +1,30 @@
-import React, {FC} from 'react';
+import React, { FC } from 'react';
 import CommentItem from '../CommentItem/CommentItem';
-import{useCommentsList} from './useCommentsList';
-import {IComment} from '../../../types';
+import { useCommentsList } from './useCommentsList';
+import { IComment } from '../../../types';
+
+import { CommentListStyled } from './style';
 
 const CommentsList: FC = () => {
 	const {
-		values: {
-			comments
-		},
-		handlers: {
-			toggleRatingUp,
-			toggleRatingDown
-		}
+		values: { comments },
+		handlers: { toggleRatingUp, toggleRatingDown },
 	} = useCommentsList();
 
-	console.log('comments: ', comments)
-
 	return (
-		<>
-			{comments.map((item : IComment) => (
+		<ContainerMUI>
+			{comments.map((item: IComment) => (
 				<CommentItem
 					key={item.id}
-					id={item.id}
-					name={item.name}
-					date={item.time}
-					rating={item.rating}
-					comment={item.comment}
+					commentItem={item}
 					increment={toggleRatingUp}
 					dicrement={toggleRatingDown}
-
 				/>
 			))}
-		</>
+		</ContainerMUI>
 	);
 };
+
+const { ContainerMUI } = CommentListStyled();
 
 export default React.memo(CommentsList);

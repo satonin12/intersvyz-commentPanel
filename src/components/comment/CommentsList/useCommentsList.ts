@@ -1,34 +1,41 @@
-import {useCallback} from 'react';
-import {UseCommentSlice} from '../../../hooks/useCommentSlice';
-import {useAppDispatch} from '../../../hooks/useReduxHooks';
-import {decrement, increment} from '../../../store/reducers/commentReducer/commentSlice';
+import { useCallback, MouseEventHandler } from 'react';
+import { UseCommentSlice } from '../../../hooks/useCommentSlice';
+import { useAppDispatch } from '../../../hooks/useReduxHooks';
+import {
+	decrement,
+	increment,
+} from '../../../store/reducers/commentReducer/commentSlice';
 
 export const useCommentsList = () => {
 	const dispatch = useAppDispatch();
 
-	const {
-		comments
-	} = UseCommentSlice();
+	const { comments } = UseCommentSlice();
 
-	const toggleRatingUp = useCallback((id: string): () => void => {
-		return () => {
-			dispatch(increment(id))
-		}
-	}, [])
+	const toggleRatingUp = useCallback(
+		(id: string): MouseEventHandler<HTMLDivElement> => {
+			return (): void => {
+				dispatch(increment(id));
+			};
+		},
+		[comments]
+	);
 
-	const toggleRatingDown = (id: string): () => void => {
-		return () => {
-			dispatch(decrement(id))
-		}
-	}
+	const toggleRatingDown = useCallback(
+		(id: string): MouseEventHandler<HTMLDivElement> => {
+			return (): void => {
+				dispatch(decrement(id));
+			};
+		},
+		[comments]
+	);
 
 	return {
 		values: {
-			comments
+			comments,
 		},
 		handlers: {
 			toggleRatingUp,
-			toggleRatingDown
-		}
-	}
-}
+			toggleRatingDown,
+		},
+	};
+};
