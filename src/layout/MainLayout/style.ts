@@ -8,6 +8,8 @@ export const MainLayoutStyled = () => {
 		height: '100vh',
 
 		boxSizing: 'border-box',
+
+		// border: '1px solid blue',
 	}));
 
 	return {

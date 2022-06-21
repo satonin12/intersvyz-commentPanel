@@ -1,9 +1,9 @@
-import React, {FC} from 'react';
+import React, { FC } from 'react';
 import { IChildren } from '../../types';
 
 import { ContentLayoutStyled } from './style';
 
-const ContentLayout : FC<IChildren> = ({ children }) => {
+const ContentLayout: FC<IChildren> = ({ children }) => {
 	return <ContentLayoutMUI>{children}</ContentLayoutMUI>;
 };
 
