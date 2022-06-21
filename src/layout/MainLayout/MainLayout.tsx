@@ -7,6 +7,11 @@ import { MainLayoutStyled } from './style';
 import { IChildren } from '../../types';
 import { store } from '../../store/store';
 
+/**
+ * Главный лайаут приложения
+ * @param children
+ * @constructor
+ */
 const MainLayout: FC<IChildren> = ({ children }) => {
 	return (
 		<Provider store={store}>

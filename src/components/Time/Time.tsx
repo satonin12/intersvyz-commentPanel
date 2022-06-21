@@ -6,6 +6,11 @@ interface ITime {
 	date: number;
 }
 
+/**
+ * компонент возвращает время в формате (1 минуту, 1 час, 1 неделю... назад)
+ * @param date
+ * @constructor
+ */
 const Time: FC<ITime> = ({ date }) => {
 	return (
 		<>

@@ -11,6 +11,13 @@ interface ICommentItemComponent {
 	dicrement: (id: string) => void;
 }
 
+/**
+ * Компонент комментария с логикой
+ * @param commentItem
+ * @param increment
+ * @param dicrement
+ * @constructor
+ */
 const CommentItem: FC<ICommentItemComponent> = ({commentItem, increment, dicrement,}) => {
 	const {open, toggleState} = useCommentItem();
 

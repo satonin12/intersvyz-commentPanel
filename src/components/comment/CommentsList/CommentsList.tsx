@@ -5,6 +5,10 @@ import { IComment } from '../../../types';
 
 import { CommentListStyled } from './style';
 
+/**
+ * Компонент рендерит список отзывов
+ * @constructor
+ */
 const CommentsList: FC = () => {
 	const {
 		values: { comments },

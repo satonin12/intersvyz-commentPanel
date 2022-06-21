@@ -7,6 +7,13 @@ interface ITextFieldUI {
 	inputProps: TextFieldProps;
 }
 
+/**
+ * Кастомный компонент поля ввода
+ * @param value
+ * @param onChange
+ * @param inputProps
+ * @constructor
+ */
 const TextFieldUI: FC<ITextFieldUI> = ({ value, onChange, inputProps }) => {
 	return (
 		<TextField

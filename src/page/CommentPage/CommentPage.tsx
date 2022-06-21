@@ -4,6 +4,12 @@ import { CommentPageStyled } from './style';
 import CommentForm from '../../components/forms/commentForm/CommentForm';
 import CommentsList from '../../components/comment/CommentsList/CommentsList';
 
+/**
+ * Страница комментариев
+ * CommentForm - форма добавления комментария
+ * CommentsList - отображение списка всех комментариев
+ * @constructor
+ */
 const CommentPage: FC = () => {
 	return (
 		<WrapperMUI>
