@@ -1,9 +1,9 @@
-import React, { FC, useMemo } from 'react';
+import React, {FC, useMemo} from 'react';
 
-import { useCommentItem } from './useCommentItem';
-import { CommentItemStyled } from './style';
+import {useCommentItem} from './useCommentItem';
+import {CommentItemStyled} from './style';
 import CommentItemView from './CommentItemView';
-import { ICommentItemData } from '../../../types';
+import {ICommentItemData} from '../../../types';
 
 interface ICommentItemComponent {
 	commentItem: ICommentItemData;
@@ -11,14 +11,10 @@ interface ICommentItemComponent {
 	dicrement: (id: string) => void;
 }
 
-const CommentItem: FC<ICommentItemComponent> = ({
-	commentItem,
-	increment,
-	dicrement,
-}) => {
-	const { open, toggleState } = useCommentItem();
+const CommentItem: FC<ICommentItemComponent> = ({commentItem, increment, dicrement,}) => {
+	const {open, toggleState} = useCommentItem();
 
-	const { id, name, time, avatar, rating, comment } =
+	const {id, name, time, avatar, rating, comment} =
 		commentItem as ICommentItemData;
 
 	/**
@@ -47,6 +43,6 @@ const CommentItem: FC<ICommentItemComponent> = ({
 	);
 };
 
-const { CardMUI, TextMUI } = CommentItemStyled();
+const {CardMUI, TextMUI} = CommentItemStyled();
 
 export default React.memo(CommentItem);

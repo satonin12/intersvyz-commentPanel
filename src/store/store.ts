@@ -4,7 +4,7 @@ import commentReducer from './reducers/commentReducer/commentSlice';
 export const store = configureStore({
 	reducer: {
 		comments: commentReducer,
-	},
+	}
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself

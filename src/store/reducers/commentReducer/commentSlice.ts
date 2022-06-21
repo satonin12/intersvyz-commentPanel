@@ -32,8 +32,8 @@ export const commentSlice = createSlice({
 					? { ...item, rating: item.rating - 1 }
 					: item;
 			});
-		},
-	},
+		}
+	}
 });
 
 export const { addComment, increment, decrement } = commentSlice.actions;

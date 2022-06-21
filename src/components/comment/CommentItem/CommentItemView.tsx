@@ -18,7 +18,7 @@ const CommentItemView: FC<ICommentItemComponent> = ({
 }) => {
 	return (
 		<>
-			<Avatar variant="rounded" alt="Cindy Baker" src={avatar} />
+			<Avatar variant='rounded' alt='Cindy Baker' src={avatar} />
 			<BodyMUI>
 				<HeaderMUI>
 					<NameMUI>{name}</NameMUI>
@@ -29,11 +29,13 @@ const CommentItemView: FC<ICommentItemComponent> = ({
 				<TextMUI>{comment}</TextMUI>
 
 				<RatingMUI>
-					<ArrowMUI component="span" onClick={increment(id)}>
+					{/*// @ts-ignore*/}
+					<ArrowMUI component='span' onClick={increment(id)}>
 						<AddIcon sx={{ width: '20' }} />
 					</ArrowMUI>
 					{rating}
-					<ArrowMUI component="span" onClick={dicrement(id)}>
+					{/*// @ts-ignore*/}
+					<ArrowMUI component='span' onClick={dicrement(id)}>
 						<RemoveIcon sx={{ width: '20' }} />
 					</ArrowMUI>
 				</RatingMUI>
