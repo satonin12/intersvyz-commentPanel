@@ -12,6 +12,11 @@ interface ICommentFormFields {
 	control: Control<TCommentForm>;
 }
 
+/**
+ * Поля формы j
+ * @param control
+ * @constructor
+ */
 const CommentFormFields: FC<ICommentFormFields> = ({ control }) => {
 	const { TextFieldSx, ContainerMUI } = CommentFormFieldsStyled();
 	const { ColumnMUI, RowMUI } = CommentFormStyled();
