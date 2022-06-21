@@ -1,11 +1,12 @@
 import React, {FC} from 'react';
 import CommentItem from '../CommentItem/CommentItem';
 import{useCommentsList} from './useCommentsList';
+import {IComment} from '../../../types';
 
 const CommentsList: FC = () => {
 	const {
 		values: {
-			comment
+			comments
 		},
 		handlers: {
 			toggleRatingUp,
@@ -13,9 +14,11 @@ const CommentsList: FC = () => {
 		}
 	} = useCommentsList();
 
+	console.log('comments: ', comments)
+
 	return (
 		<>
-			{comment.map(item => (
+			{comments.map((item : IComment) => (
 				<CommentItem
 					key={item.id}
 					id={item.id}

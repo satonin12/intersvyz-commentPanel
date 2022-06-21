@@ -1,14 +1,11 @@
-import {useContext} from 'react';
 import {useForm} from 'react-hook-form';
-import {TCommentForm} from '../../../types';
-import {CommentCTX} from '../../../store/Context/CommentProvider';
+import {IComment, TCommentForm} from '../../../types';
 import uniqid from 'uniqid';
+import {useAppDispatch} from '../../../hooks/useReduxHooks';
+import {addComment} from '../../../store/reducers/commentReducer/commentSlice';
 
 export const useCommentForm = () => {
-	const {
-		setComment
-	} = useContext(CommentCTX);
-
+	const dispatch = useAppDispatch();
 	const {
 		control,
 		handleSubmit,
@@ -20,15 +17,14 @@ export const useCommentForm = () => {
 
 	const onSubmit = async (data: TCommentForm) => {
 		try {
-			console.log('data: ', data);
 			const sendObject = {
 				id: uniqid(),
 				comment: data.comment,
 				time: Date.now(),
 				name: 'Vladislav',
 				rating: 0,
-			}
-			setComment(prevState => [...prevState, sendObject]);
+			} as IComment;
+			dispatch(addComment(sendObject));
 		} catch (e) {
 			console.log('onSubmit-error: ', e);
 		}

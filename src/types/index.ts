@@ -5,3 +5,11 @@ export interface IChildren {
 export type TCommentForm = {
 	comment: string,
 }
+
+export interface IComment {
+	readonly id: string,
+	readonly name: string,
+	readonly comment: string,
+	readonly time: number,
+	rating: number,
+}

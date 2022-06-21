@@ -1,36 +1,30 @@
-import {useCallback, useContext} from 'react';
-import {CommentCTX} from '../../../store/Context/CommentProvider';
+import {useCallback} from 'react';
+import {UseCommentSlice} from '../../../hooks/useCommentSlice';
+import {useAppDispatch} from '../../../hooks/useReduxHooks';
+import {decrement, increment} from '../../../store/reducers/commentReducer/commentSlice';
 
 export const useCommentsList = () => {
-	const {
-		comment, setComment
-	} = useContext(CommentCTX);
+	const dispatch = useAppDispatch();
 
-	console.log('comment: ', comment);
+	const {
+		comments
+	} = UseCommentSlice();
 
 	const toggleRatingUp = useCallback((id: string): () => void => {
 		return () => {
-			const filteredArr = comment.map(item => {
-				return item.id === id ? {...item, rating: item.rating++} : item
-			})
-			console.log('toggleRatingUp: ', filteredArr);
-			setComment(filteredArr);
+			dispatch(increment(id))
 		}
-	}, [comment])
+	}, [])
 
 	const toggleRatingDown = (id: string): () => void => {
 		return () => {
-			const filteredArr = comment.map(item => {
-				return item.id === id ? {...item, rating: item.rating--} : item
-			})
-			console.log('toggleRatingDown: ', filteredArr);
-			setComment(filteredArr);
+			dispatch(decrement(id))
 		}
 	}
 
 	return {
 		values: {
-			comment
+			comments
 		},
 		handlers: {
 			toggleRatingUp,
