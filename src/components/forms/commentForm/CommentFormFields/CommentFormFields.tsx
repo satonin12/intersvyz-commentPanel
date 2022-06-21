@@ -13,7 +13,7 @@ interface ICommentFormFields {
 }
 
 /**
- * Поля формы j
+ * Поля формы
  * @param control
  * @constructor
  */
