@@ -1,20 +1,23 @@
-import React, {FC} from 'react';
-import {Control, Controller} from 'react-hook-form';
-import {TCommentForm} from '../../../types';
+import React, { FC } from 'react';
+import { Control, Controller } from 'react-hook-form';
+import { TCommentForm } from '../../../types';
 
 interface IFormFieldWithController {
 	controller: {
-		name: string,
-		control: Control<TCommentForm>,
-		defaultValue: string,
+		name: string;
+		control: Control<TCommentForm>;
+		defaultValue: string;
 		rules: {
-			required: boolean
-		}
-	},
+			required: boolean;
+		};
+	};
 	children: React.ReactElement;
 }
 
-const FormFieldWithController : FC<IFormFieldWithController> = ({ controller, children }) => {
+const FormFieldWithController: FC<IFormFieldWithController> = ({
+	controller,
+	children,
+}) => {
 	return (
 		<Controller
 			name={controller.name}

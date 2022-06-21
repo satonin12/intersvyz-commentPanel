@@ -1,11 +1,12 @@
 import { styled, Typography } from '@mui/material';
 
 export const CommentFormStyled = () => {
-	const WrapperMUI = styled('div')(() => ({}));
-
 	const ContainerMUI = styled('div')(() => ({
 		display: 'flex',
-		justifyContent: 'space-between',
+		justifyContent: 'center',
+		alignItems: 'baseline',
+
+		marginBottom: '20px',
 	}));
 
 	const RowMUI = styled('div')(() => ({
@@ -27,7 +28,6 @@ export const CommentFormStyled = () => {
 	const TextMUI = styled(Typography)(() => ({}));
 
 	return {
-		WrapperMUI,
 		RowMUI,
 		ColumnMUI,
 		TextMUI,

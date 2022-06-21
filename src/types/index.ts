@@ -3,13 +3,35 @@ export interface IChildren {
 }
 
 export type TCommentForm = {
-	comment: string,
-}
+	comment: string;
+	name: string;
+	email: string;
+	[key : string]: string,
+};
 
 export interface IComment {
-	readonly id: string,
-	readonly name: string,
-	readonly comment: string,
-	readonly time: number,
-	rating: number,
+	readonly id: string;
+	readonly name: string;
+	readonly comment: string;
+	readonly time: number;
+	readonly avatar: string;
+	rating: number;
 }
+
+export interface ICommentItemData {
+	id: string;
+	name: string;
+	time: number;
+	comment: string;
+	rating: number;
+	avatar: string;
+}
+
+export interface ICommentHandlers {
+	increment: (id: string) => void;
+	dicrement: (id: string) => void;
+}
+
+export interface ICommentItemComponent
+	extends ICommentItemData,
+		ICommentHandlers {}

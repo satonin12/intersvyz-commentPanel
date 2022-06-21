@@ -1,33 +1,24 @@
-import React, {FC} from 'react';
-import { Button } from '@mui/material';
+import React, { FC } from 'react';
 
-import {CommentFormStyled} from './style';
-import {useCommentForm} from './useCommentForm';
+import { CommentFormStyled } from './style';
+import { useCommentForm } from './useCommentForm';
 import CommentFormFields from './CommentFormFields/CommentFormFields';
 
 const CommentForm: FC = () => {
+
 	const {
-		useForm: {
-			control,
-			onSubmit,
-			handleSubmit,
-		},
+		useForm: { control, onSubmit, handleSubmit },
 	} = useCommentForm();
 
 	return (
-		<ContainerMUI>
-			<form onSubmit={handleSubmit(onSubmit)}>
+		<form onSubmit={handleSubmit(onSubmit)}>
+			<ContainerMUI>
 				<CommentFormFields control={control} />
-				<Button variant="contained" type="submit">
-					Отправить
-				</Button>
-			</form>
-		</ContainerMUI>
+			</ContainerMUI>
+		</form>
 	);
 };
 
-const {
-	ContainerMUI
-} = CommentFormStyled();
+const { ContainerMUI } = CommentFormStyled();
 
 export default React.memo(CommentForm);

@@ -1,14 +1,21 @@
-import React, {FC} from 'react';
-import {TextField, TextFieldProps} from '@mui/material';
+import React, { FC } from 'react';
+import { TextField, TextFieldProps } from '@mui/material';
 
 interface ITextFieldUI {
-	value?: string,
-	onChange?: () => void,
-	inputProps: TextFieldProps
+	value?: string;
+	onChange?: () => void;
+	inputProps: TextFieldProps;
 }
 
-const TextFieldUI: FC<ITextFieldUI> = ({value, onChange, inputProps}) => {
-	return <TextField variant="outlined" {...inputProps} value={value} onChange={onChange}/>;
+const TextFieldUI: FC<ITextFieldUI> = ({ value, onChange, inputProps }) => {
+	return (
+		<TextField
+			variant="outlined"
+			{...inputProps}
+			value={value}
+			onChange={onChange}
+		/>
+	);
 };
 
 export default React.memo(TextFieldUI);
