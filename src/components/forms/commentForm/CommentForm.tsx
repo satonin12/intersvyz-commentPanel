@@ -4,8 +4,11 @@ import { CommentFormStyled } from './style';
 import { useCommentForm } from './useCommentForm';
 import CommentFormFields from './CommentFormFields/CommentFormFields';
 
+/**
+ * Компонент формы
+ * @constructor
+ */
 const CommentForm: FC = () => {
-
 	const {
 		useForm: { control, onSubmit, handleSubmit },
 	} = useCommentForm();

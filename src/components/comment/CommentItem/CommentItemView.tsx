@@ -6,6 +6,18 @@ import RemoveIcon from '@mui/icons-material/Remove';
 import { ICommentItemComponent } from '../../../types';
 import { CommentItemStyled } from './style';
 
+/**
+ * Компонент комментария без логики (pure component)
+ * @param id
+ * @param name
+ * @param time
+ * @param avatar
+ * @param comment
+ * @param rating
+ * @param increment
+ * @param dicrement
+ * @constructor
+ */
 const CommentItemView: FC<ICommentItemComponent> = ({
 	id,
 	name,

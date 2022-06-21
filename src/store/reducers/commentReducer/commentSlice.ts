@@ -5,8 +5,29 @@ interface ICommentState {
 	comments: IComment[] | [];
 }
 
+/**
+ * хранит массив комментариев вида IComment
+ */
 const initialState: ICommentState = {
-	comments: [],
+	comments: [{
+		avatar: "https://avatars.dicebear.com/api/male/:seed.svg",
+		comment: "Повседневная практика показывает, что новая модель организационной деятельности требует определения и уточнения направлений прогрессивного развития.",
+		email: "test@mail.ru",
+		id: "l4o3otg0",
+		name: "User 1",
+		rating: 10,
+		time: 1655811960335,
+	}, {
+			avatar: "https://avatars.dicebear.com/api/male/:seed.svg",
+			comment: "Повседневная практика показывает, что новая модель организационной деятельности требует определения и уточнения направлений прогрессивного развития.\n" +
+				"\n" +
+				"Не следует, однако, забывать о том, что сложившаяся структура организации обеспечивает актуальность модели развития!",
+			email: "test2@mail.ru",
+			id: "l4o3otg0",
+			name: "User 2",
+			rating: -15,
+			time: 1655811960335,
+	}],
 };
 
 export const commentSlice = createSlice({

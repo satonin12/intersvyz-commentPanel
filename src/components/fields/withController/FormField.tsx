@@ -14,6 +14,13 @@ interface IFormFieldWithController {
 	children: React.ReactElement;
 }
 
+/**
+ * Компонент принимает контроллер react-hook-form и прибавляет обработчики value, onChange children (в него прокидывается TextField)
+ * необходимо для того, чтобы react-hook-form стал контрорллируемым и сам все обрабатывал
+ * @param controller
+ * @param children
+ * @constructor
+ */
 const FormFieldWithController: FC<IFormFieldWithController> = ({
 	controller,
 	children,

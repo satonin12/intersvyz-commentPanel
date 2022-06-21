@@ -4,9 +4,12 @@ import uniqid from 'uniqid';
 import { useAppDispatch } from '../../../hooks/useReduxHooks';
 import { addComment } from '../../../store/reducers/commentReducer/commentSlice';
 
+/**
+ * хук для работы с формой (вся логика компонента)
+ */
 export const useCommentForm = () => {
 	const dispatch = useAppDispatch();
-	const { control, handleSubmit } = useForm<TCommentForm>({
+	const { control, handleSubmit, reset } = useForm<TCommentForm>({
 		defaultValues: {
 			comment: '',
 			name: '',
@@ -16,6 +19,7 @@ export const useCommentForm = () => {
 
 	const onSubmit = async (data: TCommentForm) => {
 		try {
+			// получаем url рандомного аватара
 			const avatarUrl = await fetch(
 				'https://avatars.dicebear.com/api/male/:seed.svg'
 			);
@@ -27,8 +31,8 @@ export const useCommentForm = () => {
 				rating: 0,
 				avatar: avatarUrl.url,
 			} as IComment;
-
 			dispatch(addComment(sendObject));
+			reset();
 		} catch (e) {
 			console.log('onSubmit-error: ', e);
 		}

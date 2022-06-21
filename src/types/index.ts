@@ -13,6 +13,7 @@ export interface IComment {
 	readonly id: string;
 	readonly name: string;
 	readonly comment: string;
+	readonly email: string;
 	readonly time: number;
 	readonly avatar: string;
 	rating: number;
