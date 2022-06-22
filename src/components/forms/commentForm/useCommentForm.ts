@@ -19,14 +19,15 @@ export const useCommentForm = () => {
 
 	const onSubmit = async (data: TCommentForm) => {
 		try {
+			const id = uniqid();
 			// получаем url рандомного аватара
 			const avatarUrl = await fetch(
-				'https://avatars.dicebear.com/api/male/:seed.svg'
+				`https://avatars.dicebear.com/api/male/${id}.svg`
 			);
 
 			const sendObject = {
 				...data,
-				id: uniqid(),
+				id: id,
 				time: Date.now(),
 				rating: 0,
 				avatar: avatarUrl.url,
